@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Automatische Ausrichtung + Cropping + 1D-Extraktion mit optionaler Hintergrundsubtraktion
+Automatische Ausrichtung und Cropping (eigentlich das selbe) und 1D-Extraktion mit optionaler Hintergrundsubtraktion (empfohlen!!!)
 """
 
 import os
@@ -12,7 +12,7 @@ from matplotlib.widgets import RectangleSelector
 from astropy.io import fits
 from scipy.ndimage import rotate as imrotate, gaussian_filter1d
 
-# NEU: Datei-Find-Logik aus TXT
+# aus .txt rauslseen
 
 VALID_PATTERN = re.compile(r"^(.*)_s\d+(s|med|mea)\.fits$", re.IGNORECASE)
 
@@ -28,7 +28,7 @@ def get_folder_from_txt():
 
     folder = folder.strip().strip('"')
     if not os.path.isdir(folder):
-        raise NotADirectoryError(f"Ordner aus TXT existiert nicht: {folder}")
+        raise NotADirectoryError(f"Ordner aus TXT nicht gefunden/existiert nicht: {folder}")
 
     print(f"→ Ordner aus TXT geladen: {folder}")
     return folder
@@ -39,7 +39,7 @@ def find_valid_stack_file(folder):
     """
     Sucht im Ordner nach Dateien wie:
         <name>_s<number>(s|med|mea).fits
-    Gibt entweder eine Datei zurück oder lässt den Nutzer wählen.
+    lässt nutzer wählen
     """
 
     files = os.listdir(folder)
@@ -50,15 +50,15 @@ def find_valid_stack_file(folder):
             candidates.append(f)
 
     if not candidates:
-        raise FileNotFoundError("Keine gültige Stack-Datei im Ordner gefunden.")
+        raise FileNotFoundError("keine gültige Stack-Datei im Ordner gefunden.")
 
     # nur 1 Treffer → gut
     if len(candidates) == 1:
-        print(f"→ Gefundene Datei: {candidates[0]}")
+        print(f"dateien die gefunden wurden: {candidates[0]}")
         return os.path.join(folder, candidates[0])
 
     # mehrere → Auswahl
-    print("\nMehrere gültige Dateien gefunden:")
+    print("\ngültige Dateien gefunden:")
     for i, f in enumerate(candidates):
         print(f"   [{i}] {f}")
 
@@ -74,9 +74,7 @@ def find_valid_stack_file(folder):
         print("Ungültige Eingabe.\n")
 
 
-# --------------------------------------------------------------
-# Vorhandene Hilfsfunktionen (unverändert)
-# --------------------------------------------------------------
+#helferfunktionen
 
 def percentile_scale(img, p_low=1.0, p_high=99.5):
     a = img[np.isfinite(img)]
@@ -157,7 +155,7 @@ def click_hlines(img, title, n):
         pts = plt.ginput(1, timeout=-1)
         if not pts:
             plt.close(fig)
-            raise SystemExit("Kein Klick registriert.")
+            raise SystemExit("Nix gemacht -> kein Klick registiert")
         ys.append(pts[0][1])
         ax.axhline(ys[-1], ls='--')
         fig.canvas.draw()
@@ -194,10 +192,10 @@ def extract_1d_spectrum(img, y_ex, y_bg_top, y_bg_bot, apply_bgsub=True, smooth_
 # MAIN
 
 def main():
-    print("→ Lade Ordner aus TXT…")
+    print("ordner aus .txt laden")
     folder = get_folder_from_txt()
 
-    print("→ Suche nach gültigen Stack-Dateien…")
+    print("Suche nach gültigen Stack-Dateien…")
     fits_path = find_valid_stack_file(folder)
 
     header = None
@@ -208,7 +206,7 @@ def main():
 
     img = fits.getdata(fits_path).astype(float)
 
-    print("→ Ermittle besten Drehwinkel…")
+    print(" Ermittle besten Drehwinkel…")
     best_angle, score = find_best_angle_via_projection(img)
     print(f"   Beste Rotation: {best_angle:.3f}° (Score={score:.3f})")
 
@@ -218,11 +216,11 @@ def main():
     sY, sX = select_crop_rectangle(rot)
     img_crop = rot[sY, sX]
 
-    print("→ Wähle Spektrumslinien…")
+    print(" Wähle Spektrumslinien…")
     y_ex = click_hlines(img_crop, "Klicke 2 Linien (oben/unten) für Spektrum", 2)
-    print("→ Wähle Hintergrund oben…")
+    print(" Wähle Hintergrund oben…")
     y_bg_top = click_hlines(img_crop, "Hintergrund oben: 2 Linien", 2)
-    print("→ Wähle Hintergrund unten…")
+    print(" Wähle Hintergrund unten…")
     y_bg_bot = click_hlines(img_crop, "Hintergrund unten: 2 Linien", 2)
 
     do_bg = input("Hintergrund abziehen? (J/n) [J]: ").strip().lower() or "j"
