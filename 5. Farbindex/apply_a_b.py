@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 colorindex_teff.py
-Bestimmung der effektiven Temperatur eines Sterns aus einem atmosphärisch korrigierten Spektrum (CSV)
+Bestimmung der effektiven Temperatur eines Sterns aus einem atmosphärisch korrigierten Spektrum (CSV) -> wichtig ist hier dass es eine CSV Datei ist
 """
 
 import pandas as pd
@@ -11,7 +11,7 @@ import os
 import matplotlib.pyplot as plt
 import re
 
-# Pfad-Datei: hier steht der Ordnerpfad nicht datei!!!!!
+# Pfad-Datei: hier steht der Ordnerpfad nicht datei!!!!! -> also anpassen
 PATH_FILE = r"C:\Users\joche\Desktop\python\Astro\1. stack + align\ordner.txt"
 
 # Parameter (Fenster und Kalibration)
@@ -22,7 +22,7 @@ CAL_A = 1.29826
 CAL_B = -0.06840
 
 
-# Hilfsfunktionen
+# helferfunktionen
 
 def read_folder_path(path_file):
     """Liest die Textdatei, bereinigt den Pfad und prüft, ob er existiert."""
@@ -113,7 +113,7 @@ def process_file(path):
         print(f"{k}: {v}")
 
     folder = os.path.dirname(path)
-    # Sternennamen aus Dateiname extrahieren (z.B. '250810_20.09_vega_atmosphere_corrected.csv')
+    # Sternennamen aus Dateiname extrahieren (z.B. '250810_20.09_vega_atmosphere_corrected.csv') -> effizient was?
     match = re.search(r'_(\w+)_atmosphere_corrected\.csv$', os.path.basename(path))
     if match:
         star_name = match.group(1).lower()
@@ -129,9 +129,10 @@ def process_file(path):
     return results
 
 
-# Skript ausführen
+# mach mal dein ding python
 if __name__ == "__main__":
     folder_path = read_folder_path(PATH_FILE)
     csv_files = find_csv_files(folder_path)
     for csv_file in csv_files:
         process_file(csv_file)
+
