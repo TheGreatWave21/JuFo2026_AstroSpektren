@@ -116,9 +116,11 @@ Die aufgenommenen Spektren zeigen eine hohe Qualität und ermöglichen:
 Getestet wurden zwei unabhängige Methoden:
 - Planck-Fit an das Kontinuum
 - photometrischer B–V-Farbenindex
+  
 Während der Planck-Fit für Sterne mittlerer Temperatur, insbesondere F- und G-Sterne, gute Ergebnisse lieferte, zeigten sich bei A-Sternen systematische Abweichungen durch die Struktur der Sternatmosphäre und die Energieumverteilung ab der Balmerkante.
 Der B–V-Index erwies sich insgesamt als robuster und lieferte durchgängig zuverlässigere Temperaturen mit Abweichungen von typischerweise 100–200 K zu Literaturwerten. Die Kombination beider Methoden ermöglicht eine gegenseitige Validierung und erhöht die Verlässlichkeit der Ergebnisse. Für sehr heiße O-Sterne sind beide Ansätze ungeeignet, da der Großteil ihrer Strahlung im UV-Bereich außerhalb des Messbereichs liegt.
 Zukünftige Verbesserungen könnten sein:
+
 - Korrektur systematischer Fehler
 - Einsatz von Gittern mit höherer Liniendichte
 - höhere spektrale Auflösung
