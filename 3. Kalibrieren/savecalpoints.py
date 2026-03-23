@@ -29,7 +29,7 @@ CHOICES = [
     ("Hα (6562.10 A)", 6562.10),
 ]
 
-# Ordner aus TXT laden 
+# ordner aus .txt laden
 
 VALID_PATTERN = re.compile(r".*(1draw|1dbgsub)\.csv$", re.IGNORECASE)
 TXT_PATH = r"C:\Users\benne\Desktop\Visual Studio Code\Astro\1. stack + align\ordner.txt"
@@ -50,7 +50,7 @@ def find_csv_files(folder: str):
     if not candidates:
         raise FileNotFoundError("Keine gültigen CSV-Dateien gefunden (1draw/1dbgsub).")
     if len(candidates) == 1:
-        print(f"→ Gefundene Datei: {candidates[0]}")
+        print(f"Gefundene Datei: {candidates[0]}")
         return os.path.join(folder, candidates[0])
     print("\nMehrere gültige CSV-Dateien gefunden:")
     for i, f in enumerate(candidates):
@@ -109,7 +109,7 @@ def refine_position(x, y, x_click: float, half_width: int = 8):
 
     candidates = []
 
-    for A0 in (-(med - ymin), (ymax - med)):  # Absorption & Emission
+    for A0 in (-(med - ymin), (ymax - med)):  # Absorbtion und Emission iwrd hier sozusagen bestimmt
         if abs(A0) < 1e-6:
             continue
 
@@ -141,7 +141,7 @@ def refine_position(x, y, x_click: float, half_width: int = 8):
     return float(mu), float(abs(sig)), float(A), True
 
 
-# Interaktive Punktewahl 
+# manuelle Punktewahl 
 
 def get_toolbar_mode(fig):
     mode = ''
@@ -271,7 +271,7 @@ def main():
 
     save_csv_only(base, lam, y, folder)
 
-    # Abfrage zum Speichern der Kalibrationspunkte
+    # frage zum speichern
     ans = input("\nMöchtest du die Kalibrationspunkte speichern? [j/N]: ").strip().lower()
     if ans == 'j':
         save_calibration_points(lambdas, xs_ref, folder)
