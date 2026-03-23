@@ -30,7 +30,7 @@ CHOICES = [
     ("Hα (6562.10 A)", 6562.10),
 ]
 
-# Ordner aus TXT laden
+#  ordner aus .txt-pfad laden
 
 # Nur Dateien, die exakt auf 1draw.csv oder 1dbgsub.csv enden
 VALID_PATTERN = re.compile(r".*(1draw|1dbgsub)\.csv$", re.IGNORECASE)
