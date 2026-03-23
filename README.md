@@ -62,7 +62,7 @@ Die ASI 1600MM Pro wurde über CCDciel angesteuert, wodurch die Aufnahmen in Ech
 Die gesamte Datenauswertung erfolgte ausschließlich mit selbst entwickelten Python-Skripten.
 
 
-##Temperaturbestimmung
+## Temperaturbestimmung
 
 Zur Bestimmung der effektiven Temperatur wurden zwei unabhängige Methoden verwendet:
 1. **Kontinuumsbasierte Temperaturbestimmung** (Planck-Fit)
@@ -82,7 +82,7 @@ Dieser beschreibt die Helligkeitsdifferenz eines Sterns im:
 - V-Band bei 5510 Å
 Die Methode ist besonders robust, weil sie auf integrierten Helligkeiten basiert und dadurch weniger empfindlich gegenüber einzelnen Spektralmerkmalen oder Rauschen ist. Für diese Methode wurden ausschließlich atmosphärenkorrigierte Spektren ohne instrumentelle Response-Korrektur verwendet, da die Ballesteros-Formel nur auf dem relativen Intensitätsverhältnis zwischen B- und V-Band basiert. Die instrumentell gemessenen Farbenindizes wurden mithilfe von Referenzsternen linear kalibriert. Die Umrechnung von B–V in die effektive Temperatur erfolgte anschließend mit der Ballesteros-Formel.
 
-##Ergebnisse
+## Ergebnisse
 **Beobachtete Spektren**
 Die Arbeit zeigt normierte Spektren von Sternen verschiedener Spektralklassen im Wellenlängenbereich von 3900–7000 Å.
 Die Normierung ermöglicht den direkten Vergleich der spektralen Form unabhängig von der absoluten Helligkeit. Ein zentrales Merkmal ist die Lage des Intensitätsmaximums, das sich mit der effektiven Temperatur systematisch verschiebt:
@@ -92,6 +92,7 @@ Die Normierung ermöglicht den direkten Vergleich der spektralen Form unabhängi
 Die Messungen bestätigen damit qualitativ die theoretischen Erwartungen an die Temperaturabhängigkeit der Sternspektren.
 
 **Methodenvergleich**
+
 Verglichen wurden:
 - Planck-Fit
 - B–V-Farbenindex
@@ -106,7 +107,7 @@ Insgesamt ermöglichen beide Methoden, ergänzt durch spektrale Merkmale, eine e
 **Modellgrenzen des Planck-Fits**
 Sterne der F- und besonders G-Klasse zeigen die beste Übereinstimmung zwischen Planck-Fit und gemessenem Spektrum, da der Großteil ihrer Strahlung im gemessenen Bereich liegt und dort näherungsweise einer idealisierten Planckkurve folgt. Bei A-Sternen zeigt sich jedoch ein deutliches Problem: Der Planck-Fit liefert teilweise eine Kontinuumstemperatur von etwa 15.000 K, obwohl die effektive Temperatur beispielsweise bei Vega nur etwa 9.500 K beträgt. Als Erklärung wird die Schichtstruktur der Sternatmosphäre diskutiert. Die Photosphäre ist keine einheitliche Fläche, sondern besitzt einen Temperaturgradienten. Verschiedene Wellenlängen entkommen aus unterschiedlich tiefen und damit unterschiedlich heißen Schichten. Zusätzlich wird unterhalb der Balmerkante bei 3646 Å Strahlung durch kontinuierliche Photoionisation stark absorbiert. Dadurch kommt es zu einer Umverteilung der Energie, die das Kontinuum in bestimmten Bereichen verstärken kann. Diese Effekte treten insbesondere bei heißen Sternen mit starken Balmerlinien auf und erklären, warum der Planck-Fit dort systematisch zu hohe Temperaturen liefern kann.
 
-#Fazit
+# Fazit
 
 In dieser Arbeit wurde untersucht, inwieweit sich mit einem kostengünstigen Amateuraufbau hochwertige Sternspektren aufnehmen und auswerten lassen und daraus zuverlässige Temperaturbestimmungen möglich sind.
 Die aufgenommenen Spektren zeigen eine hohe Qualität und ermöglichen:
