@@ -47,7 +47,7 @@ def load_1d(path):
         y = np.asarray(fits.getdata(path), dtype=float).ravel()
         x = np.arange(y.size, dtype=float)
     else:
-        # Prüfen, ob die erste Zeile ein Header ist
+        # Prüfen, ob die erste Zeile ein Header ist wenn nicht dann nichts machen.
         with open(path, 'r', encoding='utf-8') as f:
             first_line = f.readline()
             skiprows = 1 if any(c.isalpha() for c in first_line) else 0
@@ -62,7 +62,7 @@ def load_1d(path):
     return x, y, base
 
 
-#  Kalibration laden 
+#  Kalibration laden -> bzw. die schon vorherige durchgeführte Kali
 
 def load_calibration(csv_path):
     if not os.path.isfile(csv_path):
@@ -71,7 +71,7 @@ def load_calibration(csv_path):
     lam, pix = arr[:,0], arr[:,1]
     return pix, lam
 
-#  Verschiebung anwenden 
+#  Verschiebung anwenden -> selbes gemeint wie oben.
 
 def shift_calibration(pix_old, new_pixel_zero):
     old_zero_pixel = pix_old[0]
@@ -84,7 +84,7 @@ def shift_calibration(pix_old, new_pixel_zero):
 def interpolate_wavelengths(pix_new, lam_cal, n_pixels):
     return np.interp(np.arange(n_pixels), pix_new, lam_cal)
 
-# Speichern 
+# speichert es dann letztenendes
 
 def save_spectrum(base, lam, y, folder):
     mask = (lam >= 3900) & (lam <= 7000)
@@ -119,7 +119,7 @@ def save_spectrum(base, lam, y, folder):
 
     print(f"\n Gespeichert direkt im Ordner:\n- {fits_path}\n- {csv_path}\n- {png_path}\n")
 
-# Hauptprogramm 
+# main 
 
 def main():
     folder = get_folder_from_txt()
@@ -162,12 +162,11 @@ def main():
 
     pix_new = shift_calibration(pix_old, new_zero_pixel)
 
-    # (exakt wie bei einer normalen quad. Kalibration) # Quadratische Kalibration erneut anwenden
-
-    # quadratischen Fit aus den (verschobenen) Kalibrationspunkten bestimmen
+    # (exakt wie bei einer normalen quad. Kalibration, also genau gleich)
+    # quadratischen Fit aus den (verschoben) Kalibrationspunkten bestimmen
     coeff = np.polyfit(pix_new, lam_cal, 2)   # a, b, c
 
-    # Wellenlängen für ALLE Pixel berechnen
+    # Wellenlängen für ALLEE Pixel berechnen
     p = np.arange(len(y), dtype=float)
     lam_full = coeff[0]*p**2 + coeff[1]*p + coeff[2]
 
@@ -176,7 +175,7 @@ def main():
     print(f"λ-Bereich: {lam_full.min():.1f} – {lam_full.max():.1f} Å")
 
 
-    # Plot kalibriertes Spektrum
+    # plot kalibriertes.
     plt.figure(figsize=(12,5))
     plt.plot(lam_full, y)
     plt.xlabel("Wellenlänge [A]")
@@ -185,7 +184,7 @@ def main():
     plt.grid(True)
     plt.show()
 
-    # Speichern direkt im Input-Ordner
+    # speichern 
     save_spectrum(base, lam_full, y, folder)
 
 if __name__ == "__main__":
