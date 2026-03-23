@@ -37,10 +37,10 @@ Dieses Repository dient dazu, die komplette Arbeit in einer transparenten und sa
 **Schwarzkörperstrahlung**: Das Strahlungsverhalten von Sternen lässt sich in erster Näherung durch das Schwarzkörpermodell beschreiben. Ein idealer Schwarzkörper absorbiert sämtliche einfallende Strahlung und emittiert Strahlung ausschließlich abhängig von seiner Temperatur. Die spektrale Strahldichte eines idealen Schwarzkörpers wird durch das Plancksche Strahlungsgesetz beschrieben. Mit steigender Temperatur verschiebt sich das Maximum der Intensitätsverteilung zu kürzeren Wellenlängen. Dieser Zusammenhang wird durch das Wiensche Verschiebungsgesetz beschrieben.
 
 **Absorptions- und Balmerlinien**: Das kontinuierliche Schwarzkörperspektrum eines Sterns wird in den äußeren Schichten seiner Atmosphäre teilweise absorbiert. Dadurch entstehen Absorptionslinien, die Rückschlüsse auf die chemische Zusammensetzung und Temperatur erlauben. Besonders wichtig ist die Balmer-Serie des Wasserstoffs mit den Linien: 
-> H_alpha bei 6560–6562 Å
-> H_beta bei 4860–4861 Å
-> H_gamma bei 4340 Å
-> H_omega bei 4100 Å
+- H_alpha bei 6560–6562 Å
+- H_beta bei 4860–4861 Å
+- H_gamma bei 4340
+- H_omega bei 4100 Å
 Außerdem spielt die Balmerkante bei etwa 3646 Å eine zentrale Rolle.
 
 **Effektive Temperatur**: Die effektive Temperatur eines Sterns ist eine zentrale physikalische Größe. Sie ist über Leuchtkraft, Radius und die Stefan-Boltzmann-Konstante definiert und beschreibt die Temperatur eines idealisierten Schwarzkörpers mit derselben Gesamtstrahlungsleistung.
@@ -106,7 +106,7 @@ Insgesamt ermöglichen beide Methoden, ergänzt durch spektrale Merkmale, eine e
 **Modellgrenzen des Planck-Fits**
 Sterne der F- und besonders G-Klasse zeigen die beste Übereinstimmung zwischen Planck-Fit und gemessenem Spektrum, da der Großteil ihrer Strahlung im gemessenen Bereich liegt und dort näherungsweise einer idealisierten Planckkurve folgt. Bei A-Sternen zeigt sich jedoch ein deutliches Problem: Der Planck-Fit liefert teilweise eine Kontinuumstemperatur von etwa 15.000 K, obwohl die effektive Temperatur beispielsweise bei Vega nur etwa 9.500 K beträgt. Als Erklärung wird die Schichtstruktur der Sternatmosphäre diskutiert. Die Photosphäre ist keine einheitliche Fläche, sondern besitzt einen Temperaturgradienten. Verschiedene Wellenlängen entkommen aus unterschiedlich tiefen und damit unterschiedlich heißen Schichten. Zusätzlich wird unterhalb der Balmerkante bei 3646 Å Strahlung durch kontinuierliche Photoionisation stark absorbiert. Dadurch kommt es zu einer Umverteilung der Energie, die das Kontinuum in bestimmten Bereichen verstärken kann. Diese Effekte treten insbesondere bei heißen Sternen mit starken Balmerlinien auf und erklären, warum der Planck-Fit dort systematisch zu hohe Temperaturen liefern kann.
 
-##Fazit
+#Fazit
 
 In dieser Arbeit wurde untersucht, inwieweit sich mit einem kostengünstigen Amateuraufbau hochwertige Sternspektren aufnehmen und auswerten lassen und daraus zuverlässige Temperaturbestimmungen möglich sind.
 Die aufgenommenen Spektren zeigen eine hohe Qualität und ermöglichen:
