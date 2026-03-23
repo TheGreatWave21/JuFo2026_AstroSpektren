@@ -46,3 +46,8 @@ Außerdem spielt die Balmerkante bei etwa 3646 Å eine zentrale Rolle.
 **Effektive Temperatur**: Die effektive Temperatur eines Sterns ist eine zentrale physikalische Größe. Sie ist über Leuchtkraft, Radius und die Stefan-Boltzmann-Konstante definiert und beschreibt die Temperatur eines idealisierten Schwarzkörpers mit derselben Gesamtstrahlungsleistung.
 
 **Spektrographen und Beugungsgitter**: In dieser Arbeit wurde ein Objektivgitter verwendet. Ein Beugungsgitter zerlegt einfallendes Licht durch Beugung und Interferenz in verschiedene Richtungen. Dabei entstehen sogenannte Beugungsordnungen. Die nullte Ordnung entspricht dem ungebeugten Licht, während die erste Ordnung das für die Spektralanalyse genutzte Spektrum enthält. Verwendet wurde ein Star Analyser SA100, das direkt vor dem Objektiv positioniert wurde.
+
+## Lizenz
+
+Der Code in diesem Repository steht unter der MIT-Lizenz.
+Die Dokumentation, das PDF und die Abbildungen stehen unter der Lizenz CC BY 4.0, sofern nicht anders angegeben.
